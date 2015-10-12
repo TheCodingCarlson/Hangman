@@ -8,8 +8,41 @@ body {
 }
 
 h1 {
+	font-size: 190px;
+}
+
+button {
 	font-family: Freakshow;
-	font-size: 150px;
+	height: 70px;
+	width: 130px;
+	font-size: 40px;
+	border-radius: 25%;
+	background-color: Transparent;
+    background-repeat: no-repeat;
+    border: 2px solid black;
+    outline: none;
+}
+
+h4 {
+	font-family: Freakshow;
+}
+
+button:hover {
+	color: white;
+	border: 2px solid white;
+}
+#music {
+	height: 40px;
+	width: 40px;
+}
+
+.vol {
+	margin-left: 10px;
+}
+
+.intro {
+	text-align: center;
+	font-family: Freakshow;
 }
 
 .intro h2 {
@@ -38,4 +71,13 @@ h1 {
 	text-align: center;
 }
 
+.diff {
+	text-align: center;
+}
+.dif_buttons {
+	margin: 0 15px 15px;
+}
+.turns{
+	font-family: Freakshow;
+}
 
