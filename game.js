@@ -1,21 +1,29 @@
 $(document).ready(function() {
 
+    //set global variables
     var array = undefined;
-
+    var turnCount = 6;
 
     //function to display word once difficulty is chosen
     var displayWord = function() {
         array.forEach(function(letter) {
-            $('.word').append('<div class="letter"><h2 class="let">' + letter + '</h2></div>');
+            $('.word').append('<div class="letter"><h2 class="let ' + letter + '">' + letter + '</h2></div>');
             $('.let').hide();
         });
     };
 
-    //function to check if letter chosen by player is in the word
-    var checkLetter = function(button) {
-        $(button).on('click', function() {
-            
-
+    //function to check if letter chosen by player is in the word/show letter if guess is correct/
+    var checkLetter = function() {
+        $('.input').on('click', function() {
+            turnCount--;
+            $('.turns_left').html('Turns Left: ' + turnCount);
+            console.log(turnCount);
+            var letter = $(this).attr('id');
+            array.forEach(function(x) {
+                if(letter == x) {
+                    $('.'+letter).show();
+                }
+            });
         });
     }
 
@@ -30,10 +38,16 @@ $(document).ready(function() {
             	array = (data[0].word).toLowerCase().split('');
                 console.log(array);
                 displayWord();	
+                checkLetter();
+                $('.turns_left').html('Turns Left: ' + turnCount);
             }
         }
         );
     }
+
+
+
+
 
     //show rules when hovering mouse over How to Play?
     $('h2').mouseenter(function() {
