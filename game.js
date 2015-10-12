@@ -83,6 +83,8 @@ $(document).ready(function() {
         );
     }
 
+
+
     //hide input board/hangman
     $('.board').hide();
     $('.hangman').hide();
@@ -98,26 +100,27 @@ $(document).ready(function() {
     $('#play').on('click', function() {
         $('.intro').hide();
         $('.dif_buttons').show();
+        $('.dp').show();
     });
 
     //set randomWord parameters when difficulty buttons are clicked/hide the diff buttons/show input board
 
     $('#easy').on('click', function() {
-        randomWord(3,5);
+        randomWord(4,7);
         $('.diff').hide();
         $('.board').show();
         $('.hangman').show(); 
     });
 
     $('#med').on('click', function() {
-        randomWord(6,9);
+        randomWord(8,12);
         $('.diff').hide();
         $('.board').show();
         $('.hangman').show();  
     });
 
     $('#hard').on('click', function() {
-        randomWord(10,15);
+        randomWord(12,16);
         $('.diff').hide();
         $('.board').show(); 
         $('.hangman').show();

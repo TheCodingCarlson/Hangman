@@ -45,7 +45,7 @@ button:hover {
 	font-family: Freakshow;
 }
 
-.intro h2 {
+#desd {
 	cursor: help;
 }
 
@@ -73,9 +73,13 @@ button:hover {
 
 .diff {
 	text-align: center;
+	margin-top: 150px;
+}
+.diff p {
+	font-family: Freakshow;
 }
 .dif_buttons {
-	margin: 0 15px 15px;
+	margin-right: 35px;
 }
 .turns{
 	font-family: Freakshow;
