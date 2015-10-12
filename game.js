@@ -2,14 +2,24 @@ $(document).ready(function() {
 
     var array = undefined;
 
-    var drawHangman = function() {
-        array.forEach(function(letter) {
-            $('.word').append('<h2 class="letter">' + letter + '</h2>');
 
+    //function to display word once difficulty is chosen
+    var displayWord = function() {
+        array.forEach(function(letter) {
+            $('.word').append('<div class="letter"><h2 class="let">' + letter + '</h2></div>');
+            $('.let').hide();
         });
     };
 
-        //function to get a random word from Wordnik API
+    //function to check if letter chosen by player is in the word
+    var checkLetter = function(button) {
+        $(button).on('click', function() {
+            
+
+        });
+    }
+
+    //function to get a random word from Wordnik API
 	var randomWord = function(minLength, maxLength)  {
         var requestStr = "http://api.wordnik.com:80/v4/words.json/randomWords?minCorpusCount=10000&minDictionaryCount=20&excludePartOfSpeech=proper-noun,proper-noun-plural,proper-noun-posessive,suffix,family-name,idiom,affix&hasDictionaryDef=true&includePartOfSpeech=noun,verb,adjective,definite-article,conjunction&limit=26&minLength="+minLength+"&maxLength="+maxLength+"&api_key=a2928d7b39887c8f9340f0f28c303d6e15b37e8871ea72361";
 
@@ -18,7 +28,8 @@ $(document).ready(function() {
         	method: 'GET',
             success: function(data) {
             	array = (data[0].word).toLowerCase().split('');
-                drawHangman();	
+                console.log(array);
+                displayWord();	
             }
         }
         );
@@ -31,13 +42,13 @@ $(document).ready(function() {
         $('#des').hide();
     });
 
-    //function when play button is clicked, shows diff buttons
+    //function when play button is clicked, shows difficulty buttons
     $('#play').on('click', function() {
         $('.intro').hide();
         $('.dif_buttons').show();
     });
 
-    //set randomWord parameters when diff buttons are clicked
+    //set randomWord parameters when difficulty buttons are clicked
 
     $('#easy').on('click', function() {
         randomWord(3,5);

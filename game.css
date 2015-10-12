@@ -16,9 +16,26 @@ h1 {
 	cursor: help;
 }
 
+.word {
+	height: 130px;
+	width: 1200px;
+}
+
 .letter {
-	display: inline;
+	height: 120px;
+	width: 60px;
+	border-bottom: 5px solid black;
+	display: inline-block;
+	margin-right: 15px;
+	border-radius: 25%;
+	background: white;
+
+}
+
+.letter h2 {
 	font-family: Freakshow;
 	font-size: 100px;
+	text-align: center;
 }
+
 
