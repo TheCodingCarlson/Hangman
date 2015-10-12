@@ -1,0 +1,24 @@
+@font-face { 
+	font-family: Freakshow; src: url('Carnevalee Freakshow.TTF'); 
+}
+body {
+	/*background-image: url('http://www.wildandwestern.net/wp-content/uploads/2014/02/wild-and-western-old-wood-background-123rf-7860465_l.jpg');*/
+	background-image: url('http://lasttangoinbuenosaires.typepad.com/.a/6a00e551fcd886883401053711d2d9970b-800wi');
+	background-size: cover;
+}
+
+h1 {
+	font-family: Freakshow;
+	font-size: 150px;
+}
+
+.intro h2 {
+	cursor: help;
+}
+
+.letter {
+	display: inline;
+	font-family: Freakshow;
+	font-size: 100px;
+}
+
