@@ -1,17 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="game.css">
 	<title>Hangman</title>
+	<audio id="gbu" autoplay="autoplay" loop="true">
+    	<source src="The Good the Bad and the Ugly.mp3" type="audio/mp3">
+	</audio>
 </head>
 <body>
-	<h1>Hangman</h1>
-	<div></div>
+	<div class='container'>
+		<button id='music' type="button" class="btn btn-default" aria-label="Left Align">
+				<span id='vol' class="glyphicon glyphicon-volume-up" aria-hidden="true"></span>
+		</button>
+		<div class='intro'>
+			<h1>Hangman</h1>
+			<button id='play'>Play!</button>
+			<h2>How to play?</h2>
+			<div id='desd'>
+			<p id='des' hidden>This is going to be a description on how to play.</p>
+			</div>
+		</div>
 
+		<div class='diff'>
+			<button class='dif_buttons' id='easy' hidden>Easy</button>
+			<button class='dif_buttons' id='med' hidden>Medium</button>
+			<button class='dif_buttons' id='hard' hidden>Hard</button>
+		</div>
 
+		<div class='word'>
+
+		</div>
+	</div>
 	
+
+
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> 
 	<script type="text/javascript" src="game.js"></script>
 </body>
 </html>
