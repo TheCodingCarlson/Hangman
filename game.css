@@ -123,6 +123,10 @@ button:hover {
 	font-family: Freakshow;
 	font-size: 30px;
 }
+.turns {
+	margin-top: 30px;
+	margin-left: 30px;
+}
 .input {
 	height: 60px;
 	width: 50px;
@@ -159,10 +163,13 @@ button:hover {
 	margin-bottom: 15px;
 }
 .top {
-	margin-left: 80px;
+	margin-left: 60px;
 }
 #tc {
 	color: #CC3300;
+}
+.top h4 {
+	font-size: 22px;
 }
 
 
