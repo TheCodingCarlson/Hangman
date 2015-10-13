@@ -28,19 +28,37 @@ h4 {
 }
 
 button:hover {
-	color: #CC3300;;
+	color: #CC3300;
 	border: 2px solid #CC3300;
 	background: white;
 }
 #music {
-	height: 40px;
-	width: 40px;
+	height: 35px;
+	width: 35px;
+	border-radius: 25%;
+	background-color: transparent;
+	border: 2px solid black;
+	outline: none;
+}
+#on {
+	color: #CC3300;
+}
+.color {
+	color: black;
+	vertical-align: middle;
+}
+.color:hover {
+	color: #CC3300;
 }
 
-.vol {
-	margin-left: 10px;
+#music:hover {
+	border: 2px solid #CC3300;
+	background: white;
 }
-
+#vol {
+	position: relative;
+	padding-bottom: 3px;
+}
 .board {
 	vertical-align: top;
 }
@@ -61,8 +79,7 @@ button:hover {
 #des {
 	font-size: 35px;
 	text-align: center;
-	color: white;
-	
+	color: white;	
 }
 
 .letter {
@@ -74,7 +91,6 @@ button:hover {
 	border-radius: 25%;
 	background: white;
 	vertical-align: top;
-
 }
 
 .let {
@@ -83,6 +99,7 @@ button:hover {
 	text-align: center;
 	padding: 0;
 	margin: 0;
+	color: black;
 }
 .w {
 	display: flex;
@@ -103,8 +120,13 @@ button:hover {
 	margin-right: 13px;
 	font-size: 20px;
 }
-.turns{
+.turns_left {
 	font-family: Freakshow;
+	font-size: 30px;
+}
+.turns {
+	margin-top: 30px;
+	margin-left: 30px;
 }
 .input {
 	height: 60px;
@@ -116,12 +138,40 @@ button:hover {
 	line-height: 50px;
 	padding-bottom: 10px;
 }
-.hangman img {
-	margin-bottom: 20px;
-}
 .input:hover {
 	border: 2px solid #CC3300;
 	background: white;
 }
 
+.display {
+	position: relative;
+	height: 720px;
+}
 
+.hang_display {
+	position: absolute;
+	top: 0;
+	width: 576px;
+	height: 720px;
+}
+.add {
+	color: #CC3300;
+	border: 2px solid #CC3300;
+	background: white;
+}
+.word {
+	margin-bottom: 15px;
+}
+.top {
+	margin-left: 50px;
+}
+#tc {
+	color: #CC3300;
+}
+.top h4 {
+	font-size: 22px;
+}
+#reset {
+	height: 120px;
+	width: 150px;
+}

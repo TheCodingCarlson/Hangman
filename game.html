@@ -15,20 +15,37 @@
 	<div class='container'>
 
 		<div class='row'>
-			<div class='col-md-offset-10'>
-				<h4>Toggle Music On/Off <button id='music' type="button" class="btn btn-default" aria-label="Left Align"><span id='vol' class="glyphicon glyphicon-volume-up" aria-hidden="true"></span></button></h4>
-			</div>
-
-			<div>
+			<div class='col-md-9'>
 				<div class='turns'>
 					<h5 class='turns_left'></h5>
+				</div>
+			</div>
+			<div class='col-md-3'>
+				<div class='top'>
+					<h4>Toggle Music <span id='on'>On</span>/<span id='off'>Off</span>  <button id='music' type="button" class="btn btn-default" aria-label="Left Align"><span id='vol' class="glyphicon glyphicon-volume-up color" aria-hidden="true"></span></button></h4>
 				</div>
 			</div>
 		</div>
 
 		<div class='row'>
-			<div class='col-md-8 col-md-offset-4'>
-				<div id='hangman'>
+			<center><button id='reset'>Play Again?</button></center>
+		</div>
+
+		<div class='draw row'>
+			<div class='col-md-8 col-md-offset-4 display'>
+				<div id='hangman' class="hang_display">
+				</div>
+				<div id="hang_head" class="hang_display">	
+				</div>
+				<div id="hang_body" class="hang_display">	
+				</div>
+				<div id="hang_ll" class="hang_display">	
+				</div>
+				<div id="hang_rl" class="hang_display">	
+				</div>
+				<div id="hang_la" class="hang_display">	
+				</div>
+				<div id="hang_ra" class="hang_display">	
 				</div>
 			</div>
 		</div>
@@ -53,26 +70,21 @@
 		</div>
 
 		<div class='row'>
-			<div class='w col-md-6 col-md-offset-3'>
-				<div class='word'>
-				</div>
-			</div>
+			<center><div class='word'>
+			</div></center>
+		</div>
 
-			<div class='row'>
-				<div class='board col-md-10 col-md-offset-1'>
-					<center><button class='input' id ='a'>A</button><button class='input' id ='b'>B</button><button class='input' id ='c'>C</button><button class='input' id ='d'>D</button><button class='input' id ='e'>E</button><button class='input' id ='f'>F</button><button class='input' id ='g'>G</button><button class='input' id ='h'>H</button><button class='input' id ='i'>I</button><button class='input' id ='j'>J</button><button class='input' id ='k'>K</button><button class='input' id ='l'>L</button><button class='input' id ='m'>M</button><button class='input' id ='n'>N</button><button class='input' id ='o'>O</button><button class='input' id ='p'>P</button><button class='input' id ='q'>Q</button><button class='input' id ='r'>R</button><button class='input' id ='s'>S</button><button class='input' id ='t'>T</button><button class='input' id ='u'>U</button><button class='input' id ='v'>V</button><button class='input' id ='w'>W</button><button class='input' id ='x'>X</button><button class='input' id ='y'>Y</button><button class='input' id ='z'>Z</button></center>
-				</div>
+		<div class='row'>
+			<div class='board col-md-10 col-md-offset-1'>
+				<center><button class='input' id ='a'>A</button><button class='input' id ='b'>B</button><button class='input' id ='c'>C</button><button class='input' id ='d'>D</button><button class='input' id ='e'>E</button><button class='input' id ='f'>F</button><button class='input' id ='g'>G</button><button class='input' id ='h'>H</button><button class='input' id ='i'>I</button><button class='input' id ='j'>J</button><button class='input' id ='k'>K</button><button class='input' id ='l'>L</button><button class='input' id ='m'>M</button><button class='input' id ='n'>N</button><button class='input' id ='o'>O</button><button class='input' id ='p'>P</button><button class='input' id ='q'>Q</button><button class='input' id ='r'>R</button><button class='input' id ='s'>S</button><button class='input' id ='t'>T</button><button class='input' id ='u'>U</button><button class='input' id ='v'>V</button><button class='input' id ='w'>W</button><button class='input' id ='x'>X</button><button class='input' id ='y'>Y</button><button class='input' id ='z'>Z</button></center>
 			</div>
-			
-	
-
+		</div>
 	</div>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> 
-	<script src="jquery.lazylinepainter-1.7.0.js"></script>
-	<script src="svgData.js"></script>
+	<script type="text/javascript" src="jquery.lazylinepainter-1.7.0.js"></script>
 	<script type="text/javascript" src="game.js"></script>
 </body>
 </html>
