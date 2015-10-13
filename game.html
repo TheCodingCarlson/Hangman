@@ -15,13 +15,14 @@
 	<div class='container'>
 
 		<div class='row'>
-			<div class='col-md-offset-10'>
-				<h4>Toggle Music On/Off <button id='music' type="button" class="btn btn-default" aria-label="Left Align"><span id='vol' class="glyphicon glyphicon-volume-up" aria-hidden="true"></span></button></h4>
-			</div>
-
-			<div>
+			<div class='col-md-9'>
 				<div class='turns'>
 					<h5 class='turns_left'></h5>
+				</div>
+			</div>
+			<div class='col-md-3'>
+				<div class='top'>
+					<h4>Toggle Music <span id='on'>On</span>/<span id='off'>Off</span>  <button id='music' type="button" class="btn btn-default" aria-label="Left Align"><span id='vol' class="glyphicon glyphicon-volume-up color" aria-hidden="true"></span></button></h4>
 				</div>
 			</div>
 		</div>
@@ -35,6 +36,12 @@
 				<div id="hang_body" class="hang_display">	
 				</div>
 				<div id="hang_ll" class="hang_display">	
+				</div>
+				<div id="hang_rl" class="hang_display">	
+				</div>
+				<div id="hang_la" class="hang_display">	
+				</div>
+				<div id="hang_ra" class="hang_display">	
 				</div>
 			</div>
 		</div>
@@ -56,13 +63,14 @@
 				<button class='dif_buttons' id='hard' hidden>Hard</button>
 				<p class='dp' hidden>13 to 16 Letter Words</p>
 			</div>
+
+			<button id='reset'>Play Again?</button>
 		</div>
 
 		<div class='row'>
-			<div class='w col-md-6 col-md-offset-3'>
-				<div class='word'>
-				</div>
-			</div>
+			<center><div class='word'>
+			</div></center>
+		</div>
 
 			<div class='row'>
 				<div class='board col-md-10 col-md-offset-1'>

@@ -86,6 +86,60 @@ $(document).ready(function() {
         }
     };
 
+    var rightLeg  = {
+        "hang_rl": {
+            "strokepath": [
+
+            {
+
+                "path": "M284.2,378.5c8.5,22.4,23.3,41.6,42.8,55.5c2.6,1.9,5.1-2.5,2.5-4.3c-18.3-13.1-32.5-31.5-40.5-52.5    C287.8,374.2,283,375.5,284.2,378.5L284.2,378.5z",
+                "duration": 600
+            },
+
+            ],
+
+            "dimensions": {
+                "width": 576,
+                "height": 720
+            }
+        }
+    };
+
+
+    var leftArm  = {
+        "hang_la": {
+            "strokepath": [
+            {
+                "path": "M287.4,326.2c-10.2,6.6-19.5,14.7-27.3,24c-3.6,4.3-7,8.9-10,13.7c-3.6,5.8-6.4,12-11.1,17c-2.2,2.4,1.3,5.9,3.5,3.5    c8.1-8.7,12.5-20.2,20-29.4c7.8-9.6,17-17.8,27.4-24.5C292.6,328.8,290.1,324.4,287.4,326.2L287.4,326.2z",
+                "duration": 600
+            },
+
+            ],
+
+            "dimensions": {
+                "width": 576,
+                "height": 720
+            }
+        }
+    };
+
+    var rightArm  = {
+        "hang_ra": {
+            "strokepath": [
+             {
+                "path": "M284.3,331.5c25.2,16.6,51.8,31.1,79.4,43.4c2.9,1.3,5.5-3,2.5-4.3c-27.6-12.3-54.1-26.8-79.4-43.4    C284.1,325.4,281.6,329.7,284.3,331.5L284.3,331.5z",
+                "duration": 600
+            }
+
+            ],
+
+            "dimensions": {
+                "width": 576,
+                "height": 720
+            }
+        }
+    };
+
 
     //function to display word once difficulty is chosen
     var displayWord = function() {
@@ -97,11 +151,15 @@ $(document).ready(function() {
 
     //function to check if letter chosen by player is in the word/show letter if guess is wrong/decrement turn count
     var checkLetter = function() {
-        $('.input').on('click', function() {
+
+        $('.input').on('click', function(b) {
+
+            $(this).addClass('add');
+            $(this).attr('disabled', true);
             $('.turns_left').html('Turns Left: ' + turnCount);
-            console.log(turnCount);
             var letter = $(this).attr('id');
             var boo = false;
+
 
             array.forEach(function(x) {
                 if(letter === x && !$('.'+letter).data('displayed')) {
@@ -109,7 +167,6 @@ $(document).ready(function() {
                     $('.'+letter).data('displayed', true);
                     boo = true;
                 } else if(letter === x) {
-                    alert('This letter has already been chosen!');
                     boo = true;
                 }
             });
@@ -119,18 +176,23 @@ $(document).ready(function() {
                 countfuncs++;
                 updateTurnCount();
                 alert('Sorry, ' + letter.toUpperCase() + ' is not in this word. Try again!');
-            }
 
-            if(countfuncs === 1) {
-                drawHead();
+                if(countfuncs === 1) {
+                    drawHead();
 
-            } else if(countfuncs === 2) {
-                drawBody();
+                } else if(countfuncs === 2) {
+                    drawBody();
 
-            } else if(countfuncs === 3) {
-                drawLeftLeg();
-            }
+                } else if(countfuncs === 3) {
+                    drawLeftLeg();
 
+                } else if(countfuncs === 4) {
+                    drawRightLeg();
+
+                } else if(countfuncs === 5) {
+                    drawLeftArm();
+                }
+            }   
 
             determineOutcome();
         });
@@ -138,7 +200,7 @@ $(document).ready(function() {
 
     //Updates turn count to HTML
     var updateTurnCount = function() {
-        $('.turns_left').html('Turns Left: ' + turnCount);
+        $('.turns_left').html('Turns Left: ' + '<span id="tc">' + turnCount + '</span>');
     }
 
     var determineOutcome = function() {
@@ -146,7 +208,9 @@ $(document).ready(function() {
         var divs = $('.let');
 
         if(turnCount === 0) {
+            drawRightArm();
             alert('You Lose');
+            $('#reset').show();
         } else {
             for(var i=0; i < divs.length; i++) {
                 if($(divs[i]).css('display') === 'none') { //telling me that the letter is wrong
@@ -155,6 +219,7 @@ $(document).ready(function() {
             }
             if(0 === correctLetterCount) {
                 alert('You win!');
+                $('#reset').show();
 
             }
         }
@@ -184,10 +249,10 @@ $(document).ready(function() {
     var drawGallows = function() {
         $('#hangman').lazylinepainter( 
         {
-        "svgData": gallows,
-        "strokeWidth": 3,
-        "strokeColor": "white",
-        "drawSequential": true
+            "svgData": gallows,
+            "strokeWidth": 3,
+            "strokeColor": "white",
+            "drawSequential": true
         });
 
         $('#hangman').lazylinepainter('paint');
@@ -196,10 +261,10 @@ $(document).ready(function() {
     var drawHead = function() {
         $('#hang_head').lazylinepainter( 
         {
-        "svgData": head,
-        "strokeWidth": 3,
-        "strokeColor": "white",
-        "drawSequential": true
+            "svgData": head,
+            "strokeWidth": 3,
+            "strokeColor": "white",
+            "drawSequential": true
         });
 
         $('#hang_head').lazylinepainter('paint');
@@ -208,10 +273,10 @@ $(document).ready(function() {
     var drawBody = function() {
         $('#hang_body').lazylinepainter( 
         {
-        "svgData": body,
-        "strokeWidth": 3,
-        "strokeColor": "white",
-        "drawSequential": true
+                "svgData": body,
+                "strokeWidth": 3,
+                "strokeColor": "white",
+                "drawSequential": true
         });
 
         $('#hang_body').lazylinepainter('paint');
@@ -220,18 +285,57 @@ $(document).ready(function() {
     var drawLeftLeg = function() {
         $('#hang_ll').lazylinepainter( 
         {
-        "svgData": leftLeg,
-        "strokeWidth": 3,
-        "strokeColor": "white",
-        "drawSequential": true
+            "svgData": leftLeg,
+            "strokeWidth": 3,
+            "strokeColor": "white",
+            "drawSequential": true
         });
 
         $('#hang_ll').lazylinepainter('paint');
     };
 
-    //hide input board/hangman
+    var drawRightLeg = function() {
+        $('#hang_rl').lazylinepainter( 
+        {
+            "svgData": rightLeg,
+            "strokeWidth": 3,
+            "strokeColor": "white",
+            "drawSequential": true
+        });
+
+        $('#hang_rl').lazylinepainter('paint');
+    };
+
+
+    var drawLeftArm = function() {
+        $('#hang_la').lazylinepainter( 
+        {
+            "svgData": leftArm,
+            "strokeWidth": 3,
+            "strokeColor": "white",
+            "drawSequential": true
+        });
+
+        $('#hang_la').lazylinepainter('paint');
+    };
+
+
+    var drawRightArm = function() {
+        $('#hang_ra').lazylinepainter( 
+        {
+            "svgData": rightArm,
+            "strokeWidth": 3,
+            "strokeColor": "white",
+            "drawSequential": true
+        });
+
+        $('#hang_ra').lazylinepainter('paint');
+    };
+
+    //hide input board/hangman/reset button
     $('.board').hide();
     $('.draw').hide();
+    $('#reset').hide();
 
 
     //show rules when hovering mouse over How to Play?
@@ -278,11 +382,14 @@ $(document).ready(function() {
             if (x.paused === false){
                 x.pause();
                 $("#vol").removeClass("glyphicon glyphicon-volume-up").addClass("glyphicon glyphicon-volume-off");
+                $("#on").css('color', 'black');
+                $("#off").css('color','#CC3300');
+
             } else {
                 x.play();
                 $("#vol").removeClass("glyphicon glyphicon-volume-off").addClass("glyphicon glyphicon-volume-up");
+                $("#on").css('color', '#CC3300');
+                $("#off").css('color','black');
             }
         });
-
 });
-
