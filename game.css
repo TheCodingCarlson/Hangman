@@ -116,12 +116,22 @@ button:hover {
 	line-height: 50px;
 	padding-bottom: 10px;
 }
-.hangman img {
-	margin-bottom: 20px;
-}
+
 .input:hover {
 	border: 2px solid #CC3300;
 	background: white;
+}
+
+.display {
+	position: relative;
+	height: 720px;
+}
+
+.hang_display {
+	position: absolute;
+	top: 0;
+	width: 576px;
+	height: 720px;
 }
 
 
