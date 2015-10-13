@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="game.css">
+
+	<title>Hangman</title>
+
+	<audio id="gbu" autoplay="autoplay" loop="true">
+    	<source src="The Good the Bad and the Ugly.mp3" type="audio/mp3">
+	</audio>
+</head>
+
+<body>
+	<div class='container'>
+
+		<div class='row'>
+			<div class='col-md-offset-10'>
+				<h4>Toggle Music On/Off <button id='music' type="button" class="btn btn-default" aria-label="Left Align"><span id='vol' class="glyphicon glyphicon-volume-up" aria-hidden="true"></span></button></h4>
+			</div>
+
+			<div>
+				<div class='turns'>
+					<h5 class='turns_left'></h5>
+				</div>
+			</div>
+		</div>
+
+		<div class='row'>
+			<div class='col-md-8 col-md-offset-4'>
+				<div id='hangman'>
+				</div>
+			</div>
+		</div>
+
+
+		<div class='row intro'>
+			<h1>Hangman</h1>
+			<button id='play'>Play!</button>
+			<h2 id='desd'>How to play?</h2>
+			<p id='des' hidden>First click the Play button and then choose a difficulty. Click a letter button to see if it is in the word. You have six turns. For each wrong answer a portion of the Hangman will be drawn. If you can guess the correct word before running out of turns you win!</p>
+		</div>
+
+		<div class='row'>
+			<div class='diff'>
+				<button class='dif_buttons' id='easy' hidden>Easy</button>
+				<p class='dp' hidden>4 to 7 Letter Words</p>
+				<button class='dif_buttons' id='med' hidden>Medium</button>
+				<p class='dp' hidden>8 to 12 Letter Words</p>
+				<button class='dif_buttons' id='hard' hidden>Hard</button>
+				<p class='dp' hidden>13 to 16 Letter Words</p>
+			</div>
+		</div>
+
+		<div class='row'>
+			<div class='w col-md-6 col-md-offset-3'>
+				<div class='word'>
+				</div>
+			</div>
+
+			<div class='row'>
+				<div class='board col-md-10 col-md-offset-1'>
+					<center><button class='input' id ='a'>A</button><button class='input' id ='b'>B</button><button class='input' id ='c'>C</button><button class='input' id ='d'>D</button><button class='input' id ='e'>E</button><button class='input' id ='f'>F</button><button class='input' id ='g'>G</button><button class='input' id ='h'>H</button><button class='input' id ='i'>I</button><button class='input' id ='j'>J</button><button class='input' id ='k'>K</button><button class='input' id ='l'>L</button><button class='input' id ='m'>M</button><button class='input' id ='n'>N</button><button class='input' id ='o'>O</button><button class='input' id ='p'>P</button><button class='input' id ='q'>Q</button><button class='input' id ='r'>R</button><button class='input' id ='s'>S</button><button class='input' id ='t'>T</button><button class='input' id ='u'>U</button><button class='input' id ='v'>V</button><button class='input' id ='w'>W</button><button class='input' id ='x'>X</button><button class='input' id ='y'>Y</button><button class='input' id ='z'>Z</button></center>
+				</div>
+			</div>
+			
+	
+
+	</div>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> 
+	<script src="jquery.lazylinepainter-1.7.0.js"></script>
+	<script src="svgData.js"></script>
+	<script type="text/javascript" src="game.js"></script>
+</body>
+</html>
