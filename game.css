@@ -1,0 +1,127 @@
+@font-face { 
+	font-family: Freakshow; src: url('Carnevalee Freakshow.TTF'); 
+}
+body {
+	/*background-image: url('http://www.wildandwestern.net/wp-content/uploads/2014/02/wild-and-western-old-wood-background-123rf-7860465_l.jpg');*/
+	background-image: url('http://lasttangoinbuenosaires.typepad.com/.a/6a00e551fcd886883401053711d2d9970b-800wi');
+	background-size: cover;
+}
+
+h1 {
+	font-size: 190px;
+}
+
+button {
+	font-family: Freakshow;
+	height: 70px;
+	width: 130px;
+	font-size: 40px;
+	border-radius: 25%;
+	background-color: Transparent;
+    background-repeat: no-repeat;
+    border: 2px solid black;
+    outline: none;
+}
+
+h4 {
+	font-family: Freakshow;
+}
+
+button:hover {
+	color: #CC3300;;
+	border: 2px solid #CC3300;
+	background: white;
+}
+#music {
+	height: 40px;
+	width: 40px;
+}
+
+.vol {
+	margin-left: 10px;
+}
+
+.board {
+	vertical-align: top;
+}
+
+.intro {
+	text-align: center;
+	font-family: Freakshow;
+}
+
+#desd {
+	cursor: help;
+	font-size: 35px;
+}
+#desd:hover {
+	color: #CC3300;
+}
+
+#des {
+	font-size: 35px;
+	text-align: center;
+	color: white;
+	
+}
+
+.letter {
+	height: 60px;
+	width: 50px;
+	border-bottom: 5px solid black;
+	display: inline-block;
+	margin-right: 15px;
+	border-radius: 25%;
+	background: white;
+	vertical-align: top;
+
+}
+
+.let {
+	font-family: Freakshow;
+	font-size: 50px;
+	text-align: center;
+	padding: 0;
+	margin: 0;
+}
+.w {
+	display: flex;
+	justify-content: space-around;
+}
+
+.diff {
+	text-align: center;
+	margin-top: 150px;
+}
+.diff p {
+	font-family: Freakshow;
+}
+.dif_buttons {
+	margin-right: 35px;
+}
+.dp {
+	margin-right: 13px;
+	font-size: 20px;
+}
+.turns{
+	font-family: Freakshow;
+}
+.input {
+	height: 60px;
+	width: 50px;
+	margin: 5px 5px 5px 5px;
+	color: white;
+	border: 2px solid white;
+	text-align: center;
+	line-height: 50px;
+	padding-bottom: 10px;
+}
+.hangman img {
+	margin-bottom: 20px;
+}
+.input:hover {
+	border: 2px solid #CC3300;
+	background: white;
+}
+
+
