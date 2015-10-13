@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-
     //set global variables
     var array = undefined;
     var turnCount = 6;
@@ -35,7 +34,7 @@ $(document).ready(function() {
             if(boo === false) {
                 turnCount--;
                 updateTurnCount();
-                alert('Sorry, ' + letter + ' is not in this word. Try again!');
+                alert('Sorry, ' + letter.toUpperCase() + ' is not in this word. Try again!');
             }
             determineOutcome();
         });
@@ -83,8 +82,6 @@ $(document).ready(function() {
         );
     }
 
-
-
     //hide input board/hangman
     $('.board').hide();
     $('.hangman').hide();
@@ -120,7 +117,7 @@ $(document).ready(function() {
     });
 
     $('#hard').on('click', function() {
-        randomWord(12,16);
+        randomWord(13,16);
         $('.diff').hide();
         $('.board').show(); 
         $('.hangman').show();
