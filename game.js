@@ -207,7 +207,7 @@ $(document).ready(function() {
                 $('#reset').show();
             };
 
-            setTimeout(delay, 2000);
+            setTimeout(delay, 1500);
 
         } else {
             for(var i=0; i < divs.length; i++) {
