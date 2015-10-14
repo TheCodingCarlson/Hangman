@@ -157,7 +157,7 @@ $(document).ready(function() {
 
             $(this).addClass('add');
             $(this).attr('disabled', true);
-            $('.turns_left').html('Turns Left: ' + turnCount);
+            updateTurnCount();
             var letter = $(this).attr('id');
             var boo = false;
 
@@ -354,6 +354,7 @@ $(document).ready(function() {
         });
     }
 
+    //function for switching background sounds once we get to hangman screen
     var switchSounds = function() {
         soundTrack.pause();
         desert.loop = true;
