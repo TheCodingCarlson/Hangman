@@ -12,6 +12,8 @@ $(document).ready(function() {
     var yeeHaw = new Audio('assets/yeehaw.mp3');
     var gunShot = new Audio('assets/gunshot.mp3');
     var crying = new Audio('assets/crying.mp3');
+    var neigh = new Audio('assets/neigh.wav');
+    var currentMusic = null;
 
     //hangman drawing section variables
     var gallows = {
@@ -163,6 +165,7 @@ $(document).ready(function() {
 
             array.forEach(function(x) {
                 if(letter === x && !$('.'+letter).data('displayed')) {
+                    neigh.play();
                     $('.'+letter).show();
                     $('.'+letter).data('displayed', true);
                     boo = true;
@@ -176,7 +179,6 @@ $(document).ready(function() {
                 countfuncs++;
                 updateTurnCount();
                 gunShot.play();
-                // alert('Sorry, ' + letter.toUpperCase() + ' is not in this word. Try again!');
 
                 if(countfuncs === 1) {
                     drawHead();
@@ -210,8 +212,14 @@ $(document).ready(function() {
         if(turnCount === 0) {
             drawRightArm();
             var delay = function() {
+                gunshot.pause();
                 crying.play();
-                alert('You Lose'); 
+                swal({
+                    title: 'You Lost!',
+                    text: 'You ran out of turns, completing the hangman!',
+                    type: 'error'
+                });
+                $('.let').show(); 
                 $('#reset').show();
             };
 
@@ -224,8 +232,13 @@ $(document).ready(function() {
                 }
             }
             if(0 === correctLetterCount) {
+                neigh.pause();
                 yeeHaw.play();
-                alert('You win!');
+                swal({
+                    title: 'You Won!',
+                    text: 'You guessed the word before running out of turns, well done!',
+                    type: 'success'
+                });
                 $('#reset').show();
             }
         }
@@ -337,35 +350,41 @@ $(document).ready(function() {
         $('#hang_ra').lazylinepainter('paint');
     };
 
-    var volButtons = function(m) {
-        $("#music").on("click", function(){
-            if (m.paused === false){
-                m.pause();
-                $("#vol").removeClass("glyphicon glyphicon-volume-up").addClass("glyphicon glyphicon-volume-off");
-                $("#on").css('color', 'black');
-                $("#off").css('color','#CC3300');
-
-            } else {
-                m.play();
-                $("#vol").removeClass("glyphicon glyphicon-volume-off").addClass("glyphicon glyphicon-volume-up");
-                $("#on").css('color', '#CC3300');
-                $("#off").css('color','black');
-            }
-        });
+    //function to switch between background music
+    var playMusic = function(m) {
+        m.loop = true;
+        m.play()
+        currentMusic = m;
     }
 
-    //function for switching background sounds once we get to hangman screen
-    var switchSounds = function() {
+    //function to set up hangman screen and change background music
+    var changeIt = function() {
         soundTrack.pause();
-        desert.loop = true;
-        desert.play();
-        volButtons(desert);
+        playMusic(desert);
+        whip.play();
+        $('.diff').hide();
+        $('.board').show();
+        $('.draw').show();
     }
+
+    //used to play/pause music
+    $("#music").on("click", function(){
+        if (currentMusic.paused === false){
+            currentMusic.pause();
+            $("#vol").removeClass("glyphicon glyphicon-volume-up").addClass("glyphicon glyphicon-volume-off");
+            $("#on").css('color', 'black');
+            $("#off").css('color','#CC3300');
+
+        } else {
+            currentMusic.play();
+            $("#vol").removeClass("glyphicon glyphicon-volume-off").addClass("glyphicon glyphicon-volume-up");
+            $("#on").css('color', '#CC3300');
+            $("#off").css('color','black');
+        }
+    });
 
     //hide input board/hangman/reset button
-    soundTrack.loop = true;
-    soundTrack.play();
-    volButtons(soundTrack);
+    playMusic(soundTrack);
     $('.board').hide();
     $('.draw').hide();
     $('#reset').hide();
@@ -386,32 +405,19 @@ $(document).ready(function() {
     });
 
     //set randomWord parameters when difficulty buttons are clicked/hide the diff buttons/show input board
-
     $('#easy').on('click', function() {
-        whip.play();
-        switchSounds();
+        changeIt();
         randomWord(4,7);
-        $('.diff').hide();
-        $('.board').show();
-        $('.draw').show();
     });
 
     $('#med').on('click', function() {
-        whip.play();
-        switchSounds();
-        randomWord(8,12);
-        $('.diff').hide();
-        $('.board').show();
-        $('.draw').show();  
+        changeIt();
+        randomWord(8,12);       
     });
 
     $('#hard').on('click', function() {
-        whip.play();
-        switchSounds();
-        randomWord(13,16);
-        $('.diff').hide();
-        $('.board').show();
-        $('.draw').show();
+        changeIt();
+        randomWord(13,16);    
     });
 
     //reload page once game is over
