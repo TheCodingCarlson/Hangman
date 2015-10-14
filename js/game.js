@@ -217,10 +217,12 @@ $(document).ready(function() {
                 swal({
                     title: 'You Lost!',
                     text: 'You ran out of turns, completing the hangman!',
-                    type: 'error'
+                    type: 'error',
                 });
                 $('.let').show(); 
                 $('#reset').show();
+                $('.input').attr('disabled', true);
+                $('.input').addClass('add');
             };
 
             setTimeout(delay, 1300);
@@ -237,22 +239,32 @@ $(document).ready(function() {
                 swal({
                     title: 'You Won!',
                     text: 'You guessed the word before running out of turns, well done!',
-                    type: 'success'
+                    type: 'success',
                 });
                 $('#reset').show();
+                $('.input').attr('disabled', true);
+                $('.input').addClass('add');
             }
         }
     }
 
     //function to get a random word from Wordnik API
 	var randomWord = function(minLength, maxLength)  {
-        var requestStr = "http://api.wordnik.com:80/v4/words.json/randomWords?minCorpusCount=10000&minDictionaryCount=20&excludePartOfSpeech=proper-noun,proper-noun-plural,proper-noun-posessive,suffix,family-name,idiom,affix&hasDictionaryDef=true&includePartOfSpeech=noun,verb,adjective,definite-article,conjunction&limit=26&minLength="+minLength+"&maxLength="+maxLength+"&api_key=a2928d7b39887c8f9340f0f28c303d6e15b37e8871ea72361";
+        var requestStr = "http://api.wordnik.com:80/v4/words.json/randomWords?minCorpusCount=100&minDictionaryCount=20&excludePartOfSpeech=proper-noun,proper-noun-plural,proper-noun-posessive,suffix,family-name,idiom,affix&hasDictionaryDef=true&includePartOfSpeech=noun,verb,adjective,definite-article,conjunction&limit=5&minLength="+minLength+"&maxLength="+maxLength+"&api_key=a2928d7b39887c8f9340f0f28c303d6e15b37e8871ea72361";
 
         $.ajax(requestStr,
         	{
         	method: 'GET',
             success: function(data) {
-            	array = (data[0].word).toLowerCase().split('');
+                var test = function(y) {
+                    if(y !== "-" || y !== "'") {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+
+            	array = (data[0].word).toLowerCase().split('').filter(test);
                 console.log(array);
                 displayWord();	
                 checkLetter();
@@ -407,17 +419,17 @@ $(document).ready(function() {
     //set randomWord parameters when difficulty buttons are clicked/hide the diff buttons/show input board
     $('#easy').on('click', function() {
         changeIt();
-        randomWord(4,7);
+        randomWord(4,6);
     });
 
     $('#med').on('click', function() {
         changeIt();
-        randomWord(8,12);       
+        randomWord(7,10);       
     });
 
     $('#hard').on('click', function() {
         changeIt();
-        randomWord(13,16);    
+        randomWord(11,16);    
     });
 
     //reload page once game is over
