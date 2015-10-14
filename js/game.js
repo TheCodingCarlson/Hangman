@@ -15,7 +15,7 @@ $(document).ready(function() {
     var neigh = new Audio('assets/neigh.wav');
     var currentMusic = null;
 
-    //hangman drawing section variables
+    //declare hangman variables
     var gallows = {
         "hangman": {
             "strokepath": [
@@ -152,7 +152,7 @@ $(document).ready(function() {
         });
     };
 
-    //function to check if letter chosen by player is in the word/show letter if guess is wrong/decrement turn count
+    //function to check if letter chosen by player is in the word/show letter if guess is wrong/decrement turn count/disable button/draw hangman
     var checkLetter = function() {
 
         $('.input').on('click', function(b) {
@@ -212,7 +212,7 @@ $(document).ready(function() {
         if(turnCount === 0) {
             drawRightArm();
             var delay = function() {
-                gunshot.pause();
+                gunShot.pause();
                 crying.play();
                 swal({
                     title: 'You Lost!',
@@ -379,7 +379,7 @@ $(document).ready(function() {
         $('.draw').show();
     }
 
-    //used to play/pause music
+    //Play/pause music
     $("#music").on("click", function(){
         if (currentMusic.paused === false){
             currentMusic.pause();
@@ -434,7 +434,6 @@ $(document).ready(function() {
 
     //reload page once game is over
     $('#reset').on('click',function() {
-        whip.play();
         location.reload();
     });
 });
