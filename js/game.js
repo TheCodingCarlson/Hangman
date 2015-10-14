@@ -6,6 +6,9 @@ $(document).ready(function() {
     var countfuncs = 0;
 
     //declare music variables
+    var whip = new Audio('assets/whip.mp3');
+    var yeeHaw = new Audio('assets/yeehaw.mp3');
+    var gunShot = new Audio('assets/gunshot.mp3');
 
     //hangman drawing section variables
     var gallows = {
@@ -169,6 +172,7 @@ $(document).ready(function() {
                 turnCount--;
                 countfuncs++;
                 updateTurnCount();
+                gunShot.play();
                 alert('Sorry, ' + letter.toUpperCase() + ' is not in this word. Try again!');
 
                 if(countfuncs === 1) {
@@ -193,7 +197,7 @@ $(document).ready(function() {
 
     //Updates turn count to HTML
     var updateTurnCount = function() {
-        $('.turns_left').html('Turns Left: ' + '<span id="tc">' + turnCount + '</span>');
+        $('.turns_left').html('Turns Left: ' + '<span class="tc">' + turnCount + '</span>');
     }
 
     var determineOutcome = function() {
@@ -207,7 +211,7 @@ $(document).ready(function() {
                 $('#reset').show();
             };
 
-            setTimeout(delay, 1500);
+            setTimeout(delay, 1200);
 
         } else {
             for(var i=0; i < divs.length; i++) {
@@ -216,6 +220,7 @@ $(document).ready(function() {
                 }
             }
             if(0 === correctLetterCount) {
+                yeeHaw.play();
                 alert('You win!');
                 $('#reset').show();
             }
@@ -236,7 +241,6 @@ $(document).ready(function() {
                 checkLetter();
                 updateTurnCount();
                 drawGallows();
-
             }
         }
         );
@@ -343,6 +347,7 @@ $(document).ready(function() {
 
     //function when play button is clicked, shows difficulty buttons/hides intro div
     $('#play').on('click', function() {
+        whip.play();
         $('.intro').hide();
         $('.dif_buttons').show();
         $('.dp').show();
@@ -351,6 +356,7 @@ $(document).ready(function() {
     //set randomWord parameters when difficulty buttons are clicked/hide the diff buttons/show input board
 
     $('#easy').on('click', function() {
+        whip.play();
         randomWord(4,7);
         $('.diff').hide();
         $('.board').show();
@@ -358,6 +364,7 @@ $(document).ready(function() {
     });
 
     $('#med').on('click', function() {
+        whip.play();
         randomWord(8,12);
         $('.diff').hide();
         $('.board').show();
@@ -365,6 +372,7 @@ $(document).ready(function() {
     });
 
     $('#hard').on('click', function() {
+        whip.play();
         randomWord(13,16);
         $('.diff').hide();
         $('.board').show();
@@ -374,7 +382,8 @@ $(document).ready(function() {
 
     //reload page once game is over
     $('#reset').on('click',function() {
-      location.reload();
+        whip.play();
+        location.reload();
     });
 
     //button to toggle music on and off
