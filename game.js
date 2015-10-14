@@ -343,7 +343,6 @@ $(document).ready(function() {
 
     //function when play button is clicked, shows difficulty buttons/hides intro div
     $('#play').on('click', function() {
-        ('#whip').play();
         $('.intro').hide();
         $('.dif_buttons').show();
         $('.dp').show();
