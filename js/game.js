@@ -12,8 +12,10 @@ $(document).ready(function() {
     var yeeHaw = new Audio('assets/yeehaw.mp3');
     var gunShot = new Audio('assets/gunshot.mp3');
     var crying = new Audio('assets/crying.mp3');
+    var neigh = new Audio('assets/neigh.wav');
+    var currentMusic = null;
 
-    //hangman drawing section variables
+    //declare hangman variables
     var gallows = {
         "hangman": {
             "strokepath": [
@@ -150,7 +152,7 @@ $(document).ready(function() {
         });
     };
 
-    //function to check if letter chosen by player is in the word/show letter if guess is wrong/decrement turn count
+    //function to check if letter chosen by player is in the word/show letter if guess is wrong/decrement turn count/disable button/draw hangman
     var checkLetter = function() {
 
         $('.input').on('click', function(b) {
@@ -163,6 +165,7 @@ $(document).ready(function() {
 
             array.forEach(function(x) {
                 if(letter === x && !$('.'+letter).data('displayed')) {
+                    neigh.play();
                     $('.'+letter).show();
                     $('.'+letter).data('displayed', true);
                     boo = true;
@@ -176,7 +179,6 @@ $(document).ready(function() {
                 countfuncs++;
                 updateTurnCount();
                 gunShot.play();
-                // alert('Sorry, ' + letter.toUpperCase() + ' is not in this word. Try again!');
 
                 if(countfuncs === 1) {
                     drawHead();
@@ -210,9 +212,17 @@ $(document).ready(function() {
         if(turnCount === 0) {
             drawRightArm();
             var delay = function() {
+                gunShot.pause();
                 crying.play();
-                alert('You Lose'); 
+                swal({
+                    title: 'You Lost!',
+                    text: 'You ran out of turns, completing the hangman!',
+                    type: 'error',
+                });
+                $('.let').show(); 
                 $('#reset').show();
+                $('.input').attr('disabled', true);
+                $('.input').addClass('add');
             };
 
             setTimeout(delay, 1300);
@@ -224,22 +234,37 @@ $(document).ready(function() {
                 }
             }
             if(0 === correctLetterCount) {
+                neigh.pause();
                 yeeHaw.play();
-                alert('You win!');
+                swal({
+                    title: 'You Won!',
+                    text: 'You guessed the word before running out of turns, well done!',
+                    type: 'success',
+                });
                 $('#reset').show();
+                $('.input').attr('disabled', true);
+                $('.input').addClass('add');
             }
         }
     }
 
     //function to get a random word from Wordnik API
 	var randomWord = function(minLength, maxLength)  {
-        var requestStr = "http://api.wordnik.com:80/v4/words.json/randomWords?minCorpusCount=10000&minDictionaryCount=20&excludePartOfSpeech=proper-noun,proper-noun-plural,proper-noun-posessive,suffix,family-name,idiom,affix&hasDictionaryDef=true&includePartOfSpeech=noun,verb,adjective,definite-article,conjunction&limit=26&minLength="+minLength+"&maxLength="+maxLength+"&api_key=a2928d7b39887c8f9340f0f28c303d6e15b37e8871ea72361";
+        var requestStr = "http://api.wordnik.com:80/v4/words.json/randomWords?minCorpusCount=100&minDictionaryCount=20&excludePartOfSpeech=proper-noun,proper-noun-plural,proper-noun-posessive,suffix,family-name,idiom,affix&hasDictionaryDef=true&includePartOfSpeech=noun,verb,adjective,definite-article,conjunction&limit=5&minLength="+minLength+"&maxLength="+maxLength+"&api_key=a2928d7b39887c8f9340f0f28c303d6e15b37e8871ea72361";
 
         $.ajax(requestStr,
         	{
         	method: 'GET',
             success: function(data) {
-            	array = (data[0].word).toLowerCase().split('');
+                var test = function(y) {
+                    if(y !== "-" || y !== "'") {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+
+            	array = (data[0].word).toLowerCase().split('').filter(test);
                 console.log(array);
                 displayWord();	
                 checkLetter();
@@ -337,35 +362,41 @@ $(document).ready(function() {
         $('#hang_ra').lazylinepainter('paint');
     };
 
-    var volButtons = function(m) {
-        $("#music").on("click", function(){
-            if (m.paused === false){
-                m.pause();
-                $("#vol").removeClass("glyphicon glyphicon-volume-up").addClass("glyphicon glyphicon-volume-off");
-                $("#on").css('color', 'black');
-                $("#off").css('color','#CC3300');
-
-            } else {
-                m.play();
-                $("#vol").removeClass("glyphicon glyphicon-volume-off").addClass("glyphicon glyphicon-volume-up");
-                $("#on").css('color', '#CC3300');
-                $("#off").css('color','black');
-            }
-        });
+    //function to switch between background music
+    var playMusic = function(m) {
+        m.loop = true;
+        m.play()
+        currentMusic = m;
     }
 
-    //function for switching background sounds once we get to hangman screen
-    var switchSounds = function() {
+    //function to set up hangman screen and change background music
+    var changeIt = function() {
         soundTrack.pause();
-        desert.loop = true;
-        desert.play();
-        volButtons(desert);
+        playMusic(desert);
+        whip.play();
+        $('.diff').hide();
+        $('.board').show();
+        $('.draw').show();
     }
+
+    //Play/pause music
+    $("#music").on("click", function(){
+        if (currentMusic.paused === false){
+            currentMusic.pause();
+            $("#vol").removeClass("glyphicon glyphicon-volume-up").addClass("glyphicon glyphicon-volume-off");
+            $("#on").css('color', 'black');
+            $("#off").css('color','#CC3300');
+
+        } else {
+            currentMusic.play();
+            $("#vol").removeClass("glyphicon glyphicon-volume-off").addClass("glyphicon glyphicon-volume-up");
+            $("#on").css('color', '#CC3300');
+            $("#off").css('color','black');
+        }
+    });
 
     //hide input board/hangman/reset button
-    soundTrack.loop = true;
-    soundTrack.play();
-    volButtons(soundTrack);
+    playMusic(soundTrack);
     $('.board').hide();
     $('.draw').hide();
     $('#reset').hide();
@@ -386,37 +417,23 @@ $(document).ready(function() {
     });
 
     //set randomWord parameters when difficulty buttons are clicked/hide the diff buttons/show input board
-
     $('#easy').on('click', function() {
-        whip.play();
-        switchSounds();
-        randomWord(4,7);
-        $('.diff').hide();
-        $('.board').show();
-        $('.draw').show();
+        changeIt();
+        randomWord(4,6);
     });
 
     $('#med').on('click', function() {
-        whip.play();
-        switchSounds();
-        randomWord(8,12);
-        $('.diff').hide();
-        $('.board').show();
-        $('.draw').show();  
+        changeIt();
+        randomWord(7,10);       
     });
 
     $('#hard').on('click', function() {
-        whip.play();
-        switchSounds();
-        randomWord(13,16);
-        $('.diff').hide();
-        $('.board').show();
-        $('.draw').show();
+        changeIt();
+        randomWord(11,16);    
     });
 
     //reload page once game is over
     $('#reset').on('click',function() {
-        whip.play();
         location.reload();
     });
 });
