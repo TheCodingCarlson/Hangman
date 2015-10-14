@@ -265,7 +265,6 @@ $(document).ready(function() {
                 }
 
             	array = (data[0].word).toLowerCase().split('').filter(test);
-                console.log(array);
                 displayWord();	
                 checkLetter();
                 updateTurnCount();
