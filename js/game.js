@@ -6,9 +6,12 @@ $(document).ready(function() {
     var countfuncs = 0;
 
     //declare music variables
+    var soundTrack = new Audio('assets/the_good_bad_and_ugly.mp3');
+    var desert = new Audio('assets/desert_winds.mp3');
     var whip = new Audio('assets/whip.mp3');
     var yeeHaw = new Audio('assets/yeehaw.mp3');
     var gunShot = new Audio('assets/gunshot.mp3');
+    var crying = new Audio('assets/crying.mp3');
 
     //hangman drawing section variables
     var gallows = {
@@ -173,7 +176,7 @@ $(document).ready(function() {
                 countfuncs++;
                 updateTurnCount();
                 gunShot.play();
-                alert('Sorry, ' + letter.toUpperCase() + ' is not in this word. Try again!');
+                // alert('Sorry, ' + letter.toUpperCase() + ' is not in this word. Try again!');
 
                 if(countfuncs === 1) {
                     drawHead();
@@ -207,11 +210,12 @@ $(document).ready(function() {
         if(turnCount === 0) {
             drawRightArm();
             var delay = function() {
+                crying.play();
                 alert('You Lose'); 
                 $('#reset').show();
             };
 
-            setTimeout(delay, 1200);
+            setTimeout(delay, 1300);
 
         } else {
             for(var i=0; i < divs.length; i++) {
@@ -333,7 +337,34 @@ $(document).ready(function() {
         $('#hang_ra').lazylinepainter('paint');
     };
 
+    var volButtons = function(m) {
+        $("#music").on("click", function(){
+            if (m.paused === false){
+                m.pause();
+                $("#vol").removeClass("glyphicon glyphicon-volume-up").addClass("glyphicon glyphicon-volume-off");
+                $("#on").css('color', 'black');
+                $("#off").css('color','#CC3300');
+
+            } else {
+                m.play();
+                $("#vol").removeClass("glyphicon glyphicon-volume-off").addClass("glyphicon glyphicon-volume-up");
+                $("#on").css('color', '#CC3300');
+                $("#off").css('color','black');
+            }
+        });
+    }
+
+    var switchSounds = function() {
+        soundTrack.pause();
+        desert.loop = true;
+        desert.play();
+        volButtons(desert);
+    }
+
     //hide input board/hangman/reset button
+    soundTrack.loop = true;
+    soundTrack.play();
+    volButtons(soundTrack);
     $('.board').hide();
     $('.draw').hide();
     $('#reset').hide();
@@ -357,6 +388,7 @@ $(document).ready(function() {
 
     $('#easy').on('click', function() {
         whip.play();
+        switchSounds();
         randomWord(4,7);
         $('.diff').hide();
         $('.board').show();
@@ -365,6 +397,7 @@ $(document).ready(function() {
 
     $('#med').on('click', function() {
         whip.play();
+        switchSounds();
         randomWord(8,12);
         $('.diff').hide();
         $('.board').show();
@@ -373,11 +406,11 @@ $(document).ready(function() {
 
     $('#hard').on('click', function() {
         whip.play();
+        switchSounds();
         randomWord(13,16);
         $('.diff').hide();
         $('.board').show();
         $('.draw').show();
-
     });
 
     //reload page once game is over
@@ -385,21 +418,4 @@ $(document).ready(function() {
         whip.play();
         location.reload();
     });
-
-    //button to toggle music on and off
-    $("#music").on("click", function(){
-            var x = document.querySelector("#gbu");
-            if (x.paused === false){
-                x.pause();
-                $("#vol").removeClass("glyphicon glyphicon-volume-up").addClass("glyphicon glyphicon-volume-off");
-                $("#on").css('color', 'black');
-                $("#off").css('color','#CC3300');
-
-            } else {
-                x.play();
-                $("#vol").removeClass("glyphicon glyphicon-volume-off").addClass("glyphicon glyphicon-volume-up");
-                $("#on").css('color', '#CC3300');
-                $("#off").css('color','black');
-            }
-        });
 });
