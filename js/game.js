@@ -205,6 +205,7 @@ $(document).ready(function() {
         $('.turns_left').html('Turns Left: ' + '<span class="tc">' + turnCount + '</span>');
     }
 
+    //determine if player won or lost
     var determineOutcome = function() {
         var correctLetterCount = 0;
         var divs = $('.let');
@@ -364,7 +365,7 @@ $(document).ready(function() {
     //function to switch between background music
     var playMusic = function(m) {
         m.loop = true;
-        m.play()
+        m.play();
         currentMusic = m;
     }
 
@@ -431,7 +432,7 @@ $(document).ready(function() {
         randomWord(11,16);    
     });
 
-    //reload page once game is over
+    //reload page once reset button is clicked
     $('#reset').on('click',function() {
         location.reload();
     });
