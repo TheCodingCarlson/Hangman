@@ -3,8 +3,8 @@
 }
 
 body {
-	background-image: url('http://lasttangoinbuenosaires.typepad.com/.a/6a00e551fcd886883401053711d2d9970b-800wi');
-	background-size: cover;
+	background-image: url('background.jpg');
+  	background-size: cover;
 }
 
 h1 {
@@ -197,4 +197,13 @@ button:hover {
 	width: 200px;
 	font-size: 30px;
 	margin-top: 20px;
+}
+
+@media(max-width:767px) {
+  .intro h1 {
+  	font-size: 100px;
+  } 
+  #des {
+  	font-size: 25px;
+  }
 }
