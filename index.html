@@ -51,9 +51,9 @@
 				<h1>Hangman</h1>
 
 				<button class="square-btn" id="play">play</button>
-				<button class="square-btn" id="directions-btn">how?</button>
+				<button class="square-btn" id="directions-btn">?</button>
 
-				<p class="directions" hidden>click play and then choose a difficulty. click on letters to see if they are in the random word. you have six turns. for each wrong answer a portion of the hangman will be drawn. If you can guess the correct word before running out of turns you win!</p>
+				<p class="directions" hidden>click play and then choose a difficulty. click on letters to see if they are in the random word. you have six turns. for each wrong answer a portion of the hangman will be drawn. if you can guess the correct word before running out of turns you win!</p>
 			</div>
 		</div>
 
@@ -72,26 +72,29 @@
 			</div>
 		</div>
 
-		<!-- Gallows and Play Again Btn -->
-		<div class="draw row">
-			<div class="col-md-3">
+		<div class="row max-width reset-row">
+			<div class="col-md-12">
 				<button id="reset">play again</button>
 			</div>
-			<div class="col-md-9">
-				<div class="display">
-					<div id="hangman" class="hang-display"></div>
-					<div id="hang_head" class="hang-display"></div>
-					<div id="hang_body" class="hang-display"></div>
-					<div id="hang_ll" class="hang-display"></div>
-					<div id="hang_rl" class="hang-display"></div>
-					<div id="hang_la" class="hang-display"></div>
-					<div id="hang_ra" class="hang-display"></div>
+		</div>
+
+		<!-- Gallows and Play Again Btn -->
+		<div class="draw row max-width">
+			<div class="col-md-12">
+				<div class="hangman-drawing">
+					<div id="hangman" class="hangman-piece"></div>
+					<div id="hang_head" class="hangman-piece"></div>
+					<div id="hang_body" class="hangman-piece"></div>
+					<div id="hang_ll" class="hangman-piece"></div>
+					<div id="hang_rl" class="hangman-piece"></div>
+					<div id="hang_la" class="hangman-piece"></div>
+					<div id="hang_ra" class="hangman-piece"></div>
 				</div>
 			</div>
 		</div>
 
 		<!-- Random Word Container-->
-		<div class="row">
+		<div class="row word-row">
 			<div class="word"></div>
 		</div>
 

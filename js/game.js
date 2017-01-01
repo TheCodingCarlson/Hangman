@@ -202,7 +202,7 @@ $(document).ready(function() {
 
     //Updates turn count to HTML
     var updateTurnCount = function() {
-        $('.turns-left').html('Turns Left: ' + '<span class="tc">' + turnCount + '</span>');
+        $('.turns-left').html('turns left: ' + '<span class="tc">' + turnCount + '</span>');
     }
 
     //determine if player won or lost
@@ -229,7 +229,7 @@ $(document).ready(function() {
             setTimeout(delay, 1300);
 
         } else {
-            for(var i=0; i < divs.length; i++) {
+            for(var i = 0; i < divs.length; i++) {
                 if($(divs[i]).css('display') === 'none') { //telling me that the letter is wrong
                     correctLetterCount++;
                 }
@@ -264,7 +264,6 @@ $(document).ready(function() {
                         return false;
                     }
                 }
-
             	array = (data[0].word).toLowerCase().split('').filter(test);
                 displayWord();	
                 checkLetter();

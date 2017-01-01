@@ -17,14 +17,12 @@ h1 {
 
 button {
 	font-family: Freakshow;
-	height: 70px;
-	width: 130px;
 	font-size: 40px;
-	border-radius: 25%;
+	border-radius: 0;
 	background-color: transparent;
-  background-repeat: no-repeat;
   border: 2px solid black;
   outline: none;
+  padding: 0 20px;
 }
 
 h4 {
@@ -58,7 +56,7 @@ button:hover {
 #music {
 	height: 35px;
 	width: 35px;
-	border-radius: 25%;
+	border-radius: 0;
 	background-color: transparent;
 	border: 2px solid black;
 	outline: none;
@@ -82,16 +80,14 @@ button:hover {
 }
 
 #vol {
-	position: relative;
 	padding-bottom: 3px;
-	padding-right: 5px;
 }
 
 .intro {
 	text-align: center;
 	font-family: Freakshow;
 	height: 402px;
-	padding-top: 15vh;
+	padding-top: 10vh;
 }
 
 .directions {
@@ -115,7 +111,6 @@ button:hover {
 .diff-btns-wrapper p {
 	font-family: Freakshow;
 	font-size: 25px;
-	// color: #CC3300;
 	color: #FFFFFF;
 	padding-bottom: 20px;
 }
@@ -133,6 +128,7 @@ button:hover {
 	max-width: 870px;
 	margin: 0 auto;
 	text-align: center;
+	padding-bottom: 5vh;
 }
 
 .letter {
@@ -155,20 +151,14 @@ button:hover {
 	color: black;
 }
 
-// .w {
-// 	display: flex;
-// 	justify-content: space-around;
-// }
-
 .input {
-	height: 60px;
+	height: 50px;
 	width: 50px;
 	margin: 5px 5px 5px 5px;
 	color: white;
 	border: 2px solid white;
-	text-align: center;
-	line-height: 50px;
-	padding-bottom: 10px;
+	font-size: 30px;
+	padding: 0;
 }
 
 .input:hover {
@@ -176,17 +166,21 @@ button:hover {
 	background: white;
 }
 
-.display {
+.hangman-drawing {
 	position: relative;
 	height: 400px;
-	padding-top: 20vh;
+	margin: 0 auto;
 }
 
-.hang-display {
+.hangman-piece {
+	height: 400px;
+	width: 575px;
 	position: absolute;
 	top: 0;
-	width: 575px;
-	height: 400px;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
 }
 
 .add {
@@ -199,28 +193,104 @@ button:hover {
 	color: #CC3300;
 }
 
-#reset {
-	height: 50px;
-	width: 200px;
-	font-size: 30px;
+.reset-row {
+	text-align: center;
+	height: 40px;
 	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#reset {
+	height: 40px;
+	width: 190px;
+	font-size: 20px;
+	margin-bottom: 20px;
 }
 
 .square-btn {
 	border-radius: 0;
 }
 
-@media(max-width:767px) {
+.sweet-alert {
+	border-radius: 0;
+}
+
+.sweet-alert button {
+	border-radius: 0;
+	color: #575757;
+	border: 2px solid #575757;
+}
+
+.sweet-alert button:hover {
+	color: #CC3300;
+	border: 2px solid #CC3300;
+}
+
+button.confirm {
+	background-color: #FFFFFF !important;
+}
+
+.word-row {
+	padding-top: 20px;
+}
+
+@media(max-width: 768px) {
   .intro h1 {
-  	font-size: 100px;
+  	font-size: 150px;
   } 
   .description {
   	font-size: 25px;
   }
+  .music-ctrls {
+  	text-align: left;
+  }
 }
 
-// @media(max-width:540px) {
-// 	.music-ctrls {
-//   	text-align: left;
-//   }
-// }
+@media(max-width: 544px) {
+	.intro h1 {
+  	font-size: 90px;
+  }
+	.hangman-drawing {
+		height: 250px;
+		margin-bottom: 60px;
+	}
+	.hangman-piece {
+		height: 250px;
+		width: 425px;
+	}
+	.square-btn {
+		height: 50px;
+		width: 110px;
+		font-size: 20px;
+	}
+	.directions {
+		font-size: 20px;
+	}
+	.diff-btns-wrapper p {
+		font-size: 20px;
+	}
+	.input {
+		height: 45px;
+		width: 45px;
+		font-size: 25px;
+	}
+	.letter {
+		height: 50px;
+		width: 40px;
+		margin-bottom: 5px;
+		margin-right: 8px;
+	}
+	.let {
+		font-size: 40px;
+	}
+}
+
+@media(max-width: 400px) {
+	.hangman-drawing {
+		height: 150px;
+	}
+	.hangman-piece {
+		height: 150px;
+		width: 325px;
+	}
+}
