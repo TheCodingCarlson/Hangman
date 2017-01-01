@@ -1,89 +1,155 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<!-- Required Meta Tag -->
 	<meta name='viewport' content='width=device-width, initial-scale=1'>
+
+	<!-- Boostrap 3 CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+	<!-- Sweetalert CSS -->
 	<link rel="stylesheet" type="text/css" href="css/sweetalert.css">
-	<link rel="stylesheet" type="text/css" href="css/game.css">
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+
+	<!-- Title & Favicon -->
 	<title>Hangman</title>
+	<link href="assets/noose.png" rel="shortcut icon" type="image/x-icon" />
 </head>
 
 <body>
-	<div class='container'>
+	<div class="container-fluid">
+		<div class="row max-width">
 
-		<div class='row'>
-			<div class='col-md-9'>
-				<div class='turns'>
-					<h5 class='turns_left'></h5>
+			<!-- Turns Remaining  -->
+			<div class="col-md-6">
+				<div class="turns">
+					<h5 class="turns-left"></h5>
 				</div>
 			</div>
 			
-			<div class='col-md-3'>
-				<div class='top'>
-					<h4>Toggle Music <span id='on'>On</span>/<span id='off'>Off</span>  <button id='music' type="button" class="btn btn-default" aria-label="Left Align"><span id='vol' class="glyphicon glyphicon-volume-up color" aria-hidden="true"></span></button></h4>
+			<!-- Music Toggle Controls -->
+			<div class="col-md-6">
+				<div class="music-ctrls">
+					<h4>music 
+						<span id="on">on</span> |
+						<span id="off">off</span>  
+						<button id="music" type="button" class="btn btn-default">
+							<span id="vol" class="glyphicon glyphicon-volume-up color" aria-hidden="true"></span>
+						</button>
+					</h4>
 				</div>
 			</div>
+
 		</div>
 
-		<div class='draw row'>
-			<div class='col-md-3'>
-				<button id='reset'>Play Again?</button>
-			</div>
-			<div class='col-md-9 display'>
-				<div id='hangman' class="hang_display">
-				</div>
-				<div id="hang_head" class="hang_display">	
-				</div>
-				<div id="hang_body" class="hang_display">	
-				</div>
-				<div id="hang_ll" class="hang_display">	
-				</div>
-				<div id="hang_rl" class="hang_display">	
-				</div>
-				<div id="hang_la" class="hang_display">	
-				</div>
-				<div id="hang_ra" class="hang_display">	
-				</div>
-			</div>
-		</div>
+		<!-- Splash Page Content -->
+		<div class="row max-width">
+			<div class="intro">
 
-		<div class='row'>
-			<div class='intro'>
 				<h1>Hangman</h1>
-				<button id='play'>Play!</button>
-				<h2 id='desd'>How to play?</h2>
-				<p id='des' hidden>Click the Play button and then choose a difficulty. Click on letters to see if they are in the word. You have six turns. For each wrong answer a portion of the Hangman will be drawn. If you can guess the correct word before running out of turns you win!</p>
+
+				<button class="square-btn" id="play">play</button>
+				<button class="square-btn" id="directions-btn">?</button>
+
+				<p class="directions" hidden>click play and then choose a difficulty. click on letters to see if they are in the random word. you have six turns. for each wrong answer a portion of the hangman will be drawn. if you can guess the correct word before running out of turns you win!</p>
 			</div>
 		</div>
 
-		<div class='row'>
-			<div class='diff'>
-				<button class='dif_buttons' id='easy' hidden>Easy</button>
-				<p class='dp' hidden>4 to 6 Letter Words</p>
-				<button class='dif_buttons' id='med' hidden>Medium</button>
-				<p class='dp' hidden>7 to 10 Letter Words</p>
-				<button class='dif_buttons' id='hard' hidden>Hard</button>
-				<p class='dp' hidden>11 to 16 Letter Words</p>
+		<!-- Difficulty Buttons -->
+		<div class="row max-width">
+			<div class="diff-btns-wrapper" hidden>
+
+				<button class="diff-btn square-btn" id="easy">easy</button>
+				<p>4 - 6 letters</p>
+
+				<button class="diff-btn square-btn" id="med">medium</button>
+				<p>7 - 10 letters</p>
+
+				<button class="diff-btn square-btn" id="hard">hard</button>
+				<p>11 - 16 letters</p>
 			</div>
 		</div>
 
-		<div class='row'>
-			<center><div class='word'>
-			</div></center>
+		<!-- Play Again Btn -->
+		<div class="row max-width reset-row">
+			<div class="col-md-12">
+				<button id="reset">play again</button>
+			</div>
 		</div>
 
-		<div class='row'>
-			<div class='board col-md-10 col-md-offset-1'>
-				<center><button class='input' id ='a'>A</button><button class='input' id ='b'>B</button><button class='input' id ='c'>C</button><button class='input' id ='d'>D</button><button class='input' id ='e'>E</button><button class='input' id ='f'>F</button><button class='input' id ='g'>G</button><button class='input' id ='h'>H</button><button class='input' id ='i'>I</button><button class='input' id ='j'>J</button><button class='input' id ='k'>K</button><button class='input' id ='l'>L</button><button class='input' id ='m'>M</button><button class='input' id ='n'>N</button><button class='input' id ='o'>O</button><button class='input' id ='p'>P</button><button class='input' id ='q'>Q</button><button class='input' id ='r'>R</button><button class='input' id ='s'>S</button><button class='input' id ='t'>T</button><button class='input' id ='u'>U</button><button class='input' id ='v'>V</button><button class='input' id ='w'>W</button><button class='input' id ='x'>X</button><button class='input' id ='y'>Y</button><button class='input' id ='z'>Z</button></center>
+		<!-- Gallows and Play Again Btn -->
+		<div class="draw row max-width">
+			<div class="col-md-12">
+				<div class="hangman-drawing">
+					<div id="hangman" class="hangman-piece"></div>
+					<div id="hang_head" class="hangman-piece"></div>
+					<div id="hang_body" class="hangman-piece"></div>
+					<div id="hang_ll" class="hangman-piece"></div>
+					<div id="hang_rl" class="hangman-piece"></div>
+					<div id="hang_la" class="hangman-piece"></div>
+					<div id="hang_ra" class="hangman-piece"></div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Random Word Container-->
+		<div class="row word-row">
+			<div class="word"></div>
+		</div>
+
+		<!-- Letter Buttons -->
+		<div class="row max-width">
+			<div class="col-md-12">
+				<div class="letter-btns">
+					<button class="input" id="a">A</button>
+					<button class="input" id="b">B</button>
+					<button class="input" id="c">C</button>
+					<button class="input" id="d">D</button>
+					<button class="input" id="e">E</button>
+					<button class="input" id="f">F</button>
+					<button class="input" id="g">G</button>
+					<button class="input" id="h">H</button>
+					<button class="input" id="i">I</button>
+					<button class="input" id="j">J</button>
+					<button class="input" id="k">K</button>
+					<button class="input" id="l">L</button>
+					<button class="input" id="m">M</button>
+					<button class="input" id="n">N</button>
+					<button class="input" id="o">O</button>
+					<button class="input" id="p">P</button>
+					<button class="input" id="q">Q</button>
+					<button class="input" id="r">R</button>
+					<button class="input" id="s">S</button>
+					<button class="input" id="t">T</button>
+					<button class="input" id="u">U</button>
+					<button class="input" id="v">V</button>
+					<button class="input" id="w">W</button>
+					<button class="input" id="x">X</button>
+					<button class="input" id="y">Y</button>
+					<button class="input" id="z">Z</button>
+				</div>
 			</div>
 		</div>
 	</div>
 	
+	<!-- jQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+	<!-- jQuery UI -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+	<!-- Boostrap 3 JS -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> 
+
+	<!-- Lazy Line Painter -->
 	<script type="text/javascript" src="js/jquery.lazylinepainter-1.7.0.js"></script>
+
+	<!-- Sweetalert JS -->
 	<script type="text/javascript" src="js/sweetalert.min.js"></script>
+
+	<!-- Custom JS -->
 	<script type="text/javascript" src="js/game.js"></script>
 </body>
 </html>

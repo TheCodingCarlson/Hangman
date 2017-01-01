@@ -1,0 +1,296 @@
+@font-face { 
+	font-family: Freakshow; src: url('carnevalee_freakshow.ttf'); 
+}
+
+body {
+	background-image: url('background.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+h1 {
+	font-size: 190px;
+	margin-bottom: 20px;
+}
+
+button {
+	font-family: Freakshow;
+	font-size: 40px;
+	border-radius: 0;
+	background-color: transparent;
+  border: 2px solid black;
+  outline: none;
+  padding: 0 20px;
+}
+
+h4 {
+	font-family: Freakshow;
+}
+
+button:hover {
+	color: #CC3300;
+	border: 2px solid #CC3300;
+	background: white;
+}
+
+.max-width {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.turns-left {
+	font-family: Freakshow;
+	font-size: 22px;
+}
+
+.music-ctrls {
+	text-align: right;
+}
+
+.music-ctrls h4 {
+	font-size: 22px;
+}
+
+#music {
+	height: 35px;
+	width: 35px;
+	border-radius: 0;
+	background-color: transparent;
+	border: 2px solid black;
+	outline: none;
+}
+
+#music:hover {
+	border: 2px solid #CC3300;
+	background: white;
+}
+
+#on {
+	color: #CC3300;
+}
+
+.color {
+	color: black;
+	vertical-align: middle;
+}
+.color:hover {
+	color: #CC3300;
+}
+
+#vol {
+	padding-bottom: 3px;
+}
+
+.intro {
+	text-align: center;
+	font-family: Freakshow;
+	height: 402px;
+	padding-top: 10vh;
+}
+
+.directions {
+	font-size: 30px;
+	text-align: center;
+	color: white;	
+	max-width: 600px;
+	margin: 0 auto;
+	padding-top: 20px;
+}
+
+.diff-btns-wrapper {
+	text-align: center;
+	padding-top: 20vh;
+}
+
+.diff-btn {
+	margin-bottom: 10px;
+}
+
+.diff-btns-wrapper p {
+	font-family: Freakshow;
+	font-size: 25px;
+	color: #FFFFFF;
+	padding-bottom: 20px;
+}
+
+.diff-btns-wrapper span {
+	color: #CC3300;
+}
+
+.word {
+	padding-bottom: 15px;
+	text-align: center;
+}
+
+.letter-btns {
+	max-width: 870px;
+	margin: 0 auto;
+	text-align: center;
+	padding-bottom: 5vh;
+}
+
+.letter {
+	height: 60px;
+	width: 50px;
+	border-bottom: 5px solid black;
+	display: inline-block;
+	margin-right: 15px;
+	border-radius: 25%;
+	background: white;
+	vertical-align: top;
+}
+
+.let {
+	font-family: Freakshow;
+	font-size: 50px;
+	text-align: center;
+	padding: 0;
+	margin: 0;
+	color: black;
+}
+
+.input {
+	height: 50px;
+	width: 50px;
+	margin: 5px 5px 5px 5px;
+	color: white;
+	border: 2px solid white;
+	font-size: 30px;
+	padding: 0;
+}
+
+.input:hover {
+	border: 2px solid #CC3300;
+	background: white;
+}
+
+.hangman-drawing {
+	position: relative;
+	height: 400px;
+	margin: 0 auto;
+}
+
+.hangman-piece {
+	height: 400px;
+	width: 575px;
+	position: absolute;
+	top: 0;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+}
+
+.add {
+	color: #CC3300;
+	border: 2px solid #CC3300;
+	background: white;
+}
+
+.tc {
+	color: #CC3300;
+}
+
+.reset-row {
+	text-align: center;
+	height: 40px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#reset {
+	height: 40px;
+	width: 190px;
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+
+.square-btn {
+	border-radius: 0;
+}
+
+.sweet-alert {
+	border-radius: 0;
+}
+
+.sweet-alert button {
+	border-radius: 0;
+	color: #575757;
+	border: 2px solid #575757;
+}
+
+.sweet-alert button:hover {
+	color: #CC3300;
+	border: 2px solid #CC3300;
+}
+
+button.confirm {
+	background-color: #FFFFFF !important;
+}
+
+.word-row {
+	padding-top: 20px;
+}
+
+@media(max-width: 768px) {
+  .intro h1 {
+  	font-size: 150px;
+  } 
+  .description {
+  	font-size: 25px;
+  }
+  .music-ctrls {
+  	text-align: left;
+  }
+}
+
+@media(max-width: 544px) {
+	.intro h1 {
+  	font-size: 90px;
+  }
+	.hangman-drawing {
+		height: 250px;
+		margin-bottom: 60px;
+	}
+	.hangman-piece {
+		height: 250px;
+		width: 425px;
+	}
+	.square-btn {
+		height: 50px;
+		width: 110px;
+		font-size: 20px;
+	}
+	.directions {
+		font-size: 20px;
+	}
+	.diff-btns-wrapper p {
+		font-size: 20px;
+	}
+	.input {
+		height: 45px;
+		width: 45px;
+		font-size: 25px;
+	}
+	.letter {
+		height: 50px;
+		width: 40px;
+		margin-bottom: 5px;
+		margin-right: 8px;
+	}
+	.let {
+		font-size: 40px;
+	}
+}
+
+@media(max-width: 400px) {
+	.hangman-drawing {
+		height: 150px;
+	}
+	.hangman-piece {
+		height: 150px;
+		width: 325px;
+	}
+}

@@ -6,13 +6,13 @@ $(document).ready(function() {
     var countfuncs = 0;
 
     //declare music variables
-    var soundTrack = new Audio('assets/the_good_bad_and_ugly.mp3');
-    var desert = new Audio('assets/desert_winds.mp3');
-    var whip = new Audio('assets/whip.mp3');
-    var yeeHaw = new Audio('assets/yeehaw.mp3');
-    var gunShot = new Audio('assets/gunshot.mp3');
-    var crying = new Audio('assets/crying.mp3');
-    var neigh = new Audio('assets/neigh.wav');
+    var soundTrack = new Audio('assets/sound_clips/the_good_bad_and_ugly.mp3');
+    var desert = new Audio('assets/sound_clips/desert_winds.mp3');
+    var whip = new Audio('assets/sound_clips/whip.mp3');
+    var yeeHaw = new Audio('assets/sound_clips/yeehaw.mp3');
+    var gunShot = new Audio('assets/sound_clips/gunshot.mp3');
+    var crying = new Audio('assets/sound_clips/crying.mp3');
+    var neigh = new Audio('assets/sound_clips/neigh.wav');
     var currentMusic = null;
 
     //declare hangman variables
@@ -202,7 +202,7 @@ $(document).ready(function() {
 
     //Updates turn count to HTML
     var updateTurnCount = function() {
-        $('.turns_left').html('Turns Left: ' + '<span class="tc">' + turnCount + '</span>');
+        $('.turns-left').html('turns left: ' + '<span class="tc">' + turnCount + '</span>');
     }
 
     //determine if player won or lost
@@ -229,7 +229,7 @@ $(document).ready(function() {
             setTimeout(delay, 1300);
 
         } else {
-            for(var i=0; i < divs.length; i++) {
+            for(var i = 0; i < divs.length; i++) {
                 if($(divs[i]).css('display') === 'none') { //telling me that the letter is wrong
                     correctLetterCount++;
                 }
@@ -264,7 +264,6 @@ $(document).ready(function() {
                         return false;
                     }
                 }
-
             	array = (data[0].word).toLowerCase().split('').filter(test);
                 displayWord();	
                 checkLetter();
@@ -367,17 +366,17 @@ $(document).ready(function() {
         m.loop = true;
         m.play();
         currentMusic = m;
-    }
+    };
 
     //function to set up hangman screen and change background music
     var changeIt = function() {
         soundTrack.pause();
         playMusic(desert);
         whip.play();
-        $('.diff').hide();
-        $('.board').show();
+        $('.diff-btns-wrapper').hide();
+        $('.letter-btns').show();
         $('.draw').show();
-    }
+    };
 
     //Play/pause music
     $("#music").on("click", function(){
@@ -397,22 +396,20 @@ $(document).ready(function() {
 
     //hide input board/hangman/reset button
     playMusic(soundTrack);
-    $('.board').hide();
+    $('.letter-btns').hide();
     $('.draw').hide();
     $('#reset').hide();
 
-    //show rules when hovering mouse over How to Play?
-    $('h2').mouseenter(function() {
-        $('#des').show();
-    }).mouseleave(function() {
-        $('#des').hide();
+    //show rules when How button is clicked
+    $('#directions-btn').on('click', function() {
+        $('.directions').slideToggle();
     });
 
     //function when play button is clicked, shows difficulty buttons/hides intro div
     $('#play').on('click', function() {
         whip.play();
         $('.intro').hide();
-        $('.dif_buttons').show();
+        $('.diff-btns-wrapper').show();
         $('.dp').show();
     });
 
