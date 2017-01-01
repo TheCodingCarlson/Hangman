@@ -4,11 +4,15 @@
 
 body {
 	background-image: url('background.jpg');
-  	background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 h1 {
 	font-size: 190px;
+	margin-bottom: 20px;
 }
 
 button {
@@ -17,10 +21,10 @@ button {
 	width: 130px;
 	font-size: 40px;
 	border-radius: 25%;
-	background-color: Transparent;
-    background-repeat: no-repeat;
-    border: 2px solid black;
-    outline: none;
+	background-color: transparent;
+  background-repeat: no-repeat;
+  border: 2px solid black;
+  outline: none;
 }
 
 h4 {
@@ -33,6 +37,24 @@ button:hover {
 	background: white;
 }
 
+.max-width {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.turns-left {
+	font-family: Freakshow;
+	font-size: 22px;
+}
+
+.music-ctrls {
+	text-align: right;
+}
+
+.music-ctrls h4 {
+	font-size: 22px;
+}
+
 #music {
 	height: 35px;
 	width: 35px;
@@ -40,6 +62,11 @@ button:hover {
 	background-color: transparent;
 	border: 2px solid black;
 	outline: none;
+}
+
+#music:hover {
+	border: 2px solid #CC3300;
+	background: white;
 }
 
 #on {
@@ -54,39 +81,58 @@ button:hover {
 	color: #CC3300;
 }
 
-#music:hover {
-	border: 2px solid #CC3300;
-	background: white;
-}
-
 #vol {
 	position: relative;
 	padding-bottom: 3px;
 	padding-right: 5px;
 }
 
-.board {
-	vertical-align: top;
-}
-
 .intro {
 	text-align: center;
 	font-family: Freakshow;
+	height: 402px;
+	padding-top: 15vh;
 }
 
-#desd {
-	cursor: help;
-	font-size: 35px;
+.directions {
+	font-size: 30px;
+	text-align: center;
+	color: white;	
+	max-width: 600px;
+	margin: 0 auto;
+	padding-top: 20px;
 }
 
-#desd:hover {
+.diff-btns-wrapper {
+	text-align: center;
+	padding-top: 20vh;
+}
+
+.diff-btn {
+	margin-bottom: 10px;
+}
+
+.diff-btns-wrapper p {
+	font-family: Freakshow;
+	font-size: 25px;
+	// color: #CC3300;
+	color: #FFFFFF;
+	padding-bottom: 20px;
+}
+
+.diff-btns-wrapper span {
 	color: #CC3300;
 }
 
-#des {
-	font-size: 35px;
+.word {
+	padding-bottom: 15px;
 	text-align: center;
-	color: white;	
+}
+
+.letter-btns {
+	max-width: 870px;
+	margin: 0 auto;
+	text-align: center;
 }
 
 .letter {
@@ -109,37 +155,10 @@ button:hover {
 	color: black;
 }
 
-.w {
-	display: flex;
-	justify-content: space-around;
-}
-
-.diff {
-	text-align: center;
-	margin-top: 150px;
-}
-
-.diff p {
-	font-family: Freakshow;
-}
-.dif_buttons {
-	margin-right: 35px;
-}
-
-.dp {
-	margin-right: 13px;
-	font-size: 20px;
-}
-
-.turns_left {
-	font-family: Freakshow;
-	font-size: 30px;
-}
-
-.turns {
-	margin-top: 30px;
-	margin-left: 30px;
-}
+// .w {
+// 	display: flex;
+// 	justify-content: space-around;
+// }
 
 .input {
 	height: 60px;
@@ -160,9 +179,10 @@ button:hover {
 .display {
 	position: relative;
 	height: 400px;
+	padding-top: 20vh;
 }
 
-.hang_display {
+.hang-display {
 	position: absolute;
 	top: 0;
 	width: 575px;
@@ -175,21 +195,8 @@ button:hover {
 	background: white;
 }
 
-.word {
-	margin-bottom: 15px;
-}
-
-.top {
-	margin-left: 50px;
-	margin-top: 30px;
-}
-
 .tc {
 	color: #CC3300;
-}
-
-.top h4 {
-	font-size: 22px;
 }
 
 #reset {
@@ -199,11 +206,21 @@ button:hover {
 	margin-top: 20px;
 }
 
+.square-btn {
+	border-radius: 0;
+}
+
 @media(max-width:767px) {
   .intro h1 {
   	font-size: 100px;
   } 
-  #des {
+  .description {
   	font-size: 25px;
   }
 }
+
+// @media(max-width:540px) {
+// 	.music-ctrls {
+//   	text-align: left;
+//   }
+// }
