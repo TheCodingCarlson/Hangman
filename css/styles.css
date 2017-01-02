@@ -40,6 +40,10 @@ button:hover {
 	margin: 0 auto;
 }
 
+.data-row {
+	margin-top: 20px;
+}
+
 .turns-left {
 	font-family: Freakshow;
 	font-size: 22px;
@@ -282,6 +286,9 @@ button.confirm {
 	}
 	.let {
 		font-size: 40px;
+	}
+	.data-row {
+		margin-top: 10px;
 	}
 }
 
