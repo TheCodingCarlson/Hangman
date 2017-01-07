@@ -1,9 +1,9 @@
 @font-face { 
-	font-family: Freakshow; src: url('carnevalee_freakshow.ttf'); 
+	font-family: Freakshow; src: url('../assets/carnevalee_freakshow.ttf'); 
 }
 
 body {
-	background-image: url('background.jpg');
+	background-image: url('../assets/background.jpg');
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
