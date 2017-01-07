@@ -1,13 +1,13 @@
 # Hangman
 
 ###Basic Info
-The classic word guessing game that we all know and love styled with a Western theme! Start the game by hitting the play button. Then choose a difficulty (easy, medium, hard). Press letter buttons to see if the chosen letter is in the word or not. You have six guesses. For every wrong answer a portion of the hangman will be drawn. Guess all the correct letters in the word before you run out of turns to win!
+The classic word guessing game that we all know and love styled in a Western twist! Start the game by hitting the play button. Then choose a difficulty (easy, medium, hard). Press letter buttons to see if the chosen letter is in the word or not. You have six guesses. For every wrong answer a portion of the hangman will be drawn. Guess all the correct letters in the word before you run out of turns to win!
 
 Play it [here](http://thecodingcarlson.github.io/Hangman)!
 
-![Screen Shot 1](/assets/screen_shots/screen_shots_1.png)
+![Screen Shot 1](assets/screen_shots/screen_shots_1.png)
 
-![Screen Shot 2](/assets/screen_shots/screen_shots_2.png)
+![Screen Shot 2](assets/screen_shots/screen_shots_2.png)
 
 ###Technologies Used
 * HTML5
