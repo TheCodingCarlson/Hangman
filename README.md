@@ -5,9 +5,9 @@ The classic word guessing game that we all know and love styled in a Western twi
 
 Play it [here](http://thecodingcarlson.github.io/Hangman)!
 
-![Screen Shot 1](assets/screen_shots/screen_shot_1.png)
+![Screen Shot 1](assets/screen_shots/screen_shot_2.png)
 
-![Screen Shot 2](assets/screen_shots/screen_shot_2.png)
+![Screen Shot 2](assets/screen_shots/screen_shot_1.png)
 
 ###Technologies Used
 * HTML5
