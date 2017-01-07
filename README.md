@@ -5,9 +5,9 @@ The classic word guessing game that we all know and love styled in a Western twi
 
 Play it [here](http://thecodingcarlson.github.io/Hangman)!
 
-![Screen Shot 1](assets/screen_shots/screen_shots_1.png)
+![Screen Shot 1](assets/screen_shots/screen_shot_1.png)
 
-![Screen Shot 2](assets/screen_shots/screen_shots_2.png)
+![Screen Shot 2](assets/screen_shots/screen_shot_2.png)
 
 ###Technologies Used
 * HTML5
@@ -23,11 +23,11 @@ Play it [here](http://thecodingcarlson.github.io/Hangman)!
 
 ###Obstacles
 
-Breaking up my drawing into various sections that would start and stop depending on if a player guessed a wrong letter or not. Had to get creative with the plug-in.
+Breaking up my hangman drawing into various sections that would start and stop depending on if a player guessed a wrong letter or not. Had to get creative with the plug-in.
 
 ###Goals
 
-Add on a feature where the player can see the definition of the word after the round has been completed.
+Add a feature where the player can see the definition of the word after the round has been completed.
 
 
 
