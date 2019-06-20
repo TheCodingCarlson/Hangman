@@ -251,10 +251,10 @@ $(document).ready(function() {
 
     //function to get a random word from Wordnik API
 	var randomWord = function(minLength, maxLength)  {
-        var requestStr = "http://api.wordnik.com:80/v4/words.json/randomWords?minCorpusCount=100&minDictionaryCount=20&excludePartOfSpeech=proper-noun,proper-noun-plural,proper-noun-posessive,suffix,family-name,idiom,affix&hasDictionaryDef=true&includePartOfSpeech=noun,verb,adjective,definite-article,conjunction&limit=5&minLength="+minLength+"&maxLength="+maxLength+"&api_key=a2928d7b39887c8f9340f0f28c303d6e15b37e8871ea72361";
+        var requestStr = "http://api.wordnik.com:80/v4/words.json/randomWords?minCorpusCount=100&minDictionaryCount=20&excludePartOfSpeech=proper-noun,proper-noun-plural,suffix,family-name,idiom,affix&hasDictionaryDef=true&includePartOfSpeech=noun,verb,adjective,definite-article,conjunction&limit=5&minLength="+minLength+"&maxLength="+maxLength+"&api_key=a2928d7b39887c8f9340f0f28c303d6e15b37e8871ea72361";
 
         $.ajax(requestStr,
-        	{
+        {
         	method: 'GET',
             success: function(data) {
                 var test = function(y) {
@@ -270,8 +270,7 @@ $(document).ready(function() {
                 updateTurnCount();
                 drawGallows();
             }
-        }
-        );
+        });
     }
 
     //functions to draw figure
